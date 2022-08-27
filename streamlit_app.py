@@ -19,6 +19,7 @@ with st.form("메뉴 당 식비 계산", clear_on_submit= True):
         st.write(st.session_state['menu_price_list'])
         st.write(sum(st.session_state['menu_price_list']) )
         
+        
 
 st.write(f"남은 식비 : {sum_food_expence - sum(st.session_state['menu_price_list'])}")
 
