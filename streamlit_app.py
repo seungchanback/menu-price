@@ -26,7 +26,7 @@ with st.form("메뉴 당 식비 계산", clear_on_submit= True):
         st.write(sum([ int(menu['메뉴 가격']) for menu in st.session_state['menu_price_list']]))
 
 if "menu_price_list" in st.session_state:
-    st.write(pd.DataFrame(st.session_state['menu_price_list']))
+    st.write(pd.DataFrame(st.session_state['menu_price_list'],index=['메뉴']))
 st.write(f"남은 식비 : {sum_food_expence - sum([ int(menu['메뉴 가격']) for menu in st.session_state['menu_price_list']])}")
 
 
