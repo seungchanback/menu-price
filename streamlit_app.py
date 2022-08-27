@@ -30,5 +30,3 @@ with st.container():
         st.session_state['menu_price_list'] = st.multiselect('메뉴', st.session_state['menu_price_list'], st.session_state['menu_price_list'])
         st.write(pd.DataFrame(st.session_state['menu_price_list']))
     st.write(f"남은 식비 : {sum_food_expence - sum([ int(menu['메뉴 가격']) for menu in st.session_state['menu_price_list']])}")
-
-]]
