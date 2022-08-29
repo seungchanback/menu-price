@@ -23,10 +23,10 @@ with st.form("메뉴 당 식비 계산", clear_on_submit= True):
             '메뉴 당 인원' : temp_menu_people
          }
         st.session_state['menu_price_list'].append(temp_menu)
-        st.write(sum([ int(menu['메뉴 가격']) for menu in st.session_state['menu_price_list']]))
+        st.write(sum([ int(menu['메뉴 가격'] ) for menu in st.session_state['menu_price_list']])  * int(temp_menu_people))
 
 with st.container():
     if "menu_price_list" in st.session_state:
         st.session_state['menu_price_list'] = st.multiselect('메뉴', st.session_state['menu_price_list'], st.session_state['menu_price_list'])
         st.write(pd.DataFrame(st.session_state['menu_price_list']))
-    st.write(f"남은 식비 : {sum_food_expence - sum([ int(menu['메뉴 가격']) for menu in st.session_state['menu_price_list']])}")
+        st.write(f"남은 식비 : {sum_food_expence - sum([ int(menu['메뉴 가격']) * int(menu['메뉴 당 인원']) for menu in st.session_state['menu_price_list']])}")
